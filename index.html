@@ -2,54 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ESP32 Solar Cleaner Control</title>
+  <title>ESP32 Solar Panel Cleaner Control</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main>
-    <h1>ESP32 Solar Panel Cleaner</h1>
-    <label>
-      ESP32 IP:
-      <input id="esp32-ip" type="text" value="192.168.4.1" />
-    </label>
-    <div class="section">
-      <h2>Drive</h2>
-      <div>
-        <strong>Forward:</strong>
-        <button onclick="send('f255')">Max</button>
-        <button onclick="send('f170')">Half</button>
-        <button onclick="send('f85')">1/3rd</button>
+    <div class="container">
+      <h1>ESP32 Solar Panel Cleaner</h1>
+      <div class="ip-row">
+        <label for="esp32-ip">ESP32 IP:</label>
+        <input id="esp32-ip" type="text" value="192.168.4.1" />
       </div>
-      <div style="margin-top:8px;">
-        <strong>Reverse:</strong>
-        <button onclick="send('r255')">Max</button>
-        <button onclick="send('r170')">Half</button>
-        <button onclick="send('r85')">1/3rd</button>
+      
+      <div class="section">
+        <h2>Drive</h2>
+        <div class="button-row">
+          <span class="label">Forward:</span>
+          <button onclick="send('f255')">Max</button>
+          <button onclick="send('f170')">Half</button>
+          <button onclick="send('f85')">1/3rd</button>
+        </div>
+        <div class="button-row">
+          <span class="label">Reverse:</span>
+          <button onclick="send('r255')">Max</button>
+          <button onclick="send('r170')">Half</button>
+          <button onclick="send('r85')">1/3rd</button>
+        </div>
+        <div class="button-row">
+          <button onclick="send('b')" class="full">Brake</button>
+        </div>
       </div>
-      <div style="margin-top:8px;">
-        <button onclick="send('b')">Brake</button>
+      
+      <div class="section">
+        <h2>Brush</h2>
+        <div class="button-row">
+          <button onclick="send('c200')">Brush</button>
+          <button onclick="send('e200')">Brush Reverse</button>
+          <button onclick="send('s')">Stop Brush</button>
+        </div>
       </div>
+      
+      <div class="section">
+        <h2>Actuator</h2>
+        <div class="button-row">
+          <button onclick="send('l100')">Act Pos 100</button>
+          <button onclick="send('m200')">Act Pos 200</button>
+          <button onclick="send('n300')">Act Pos 300</button>
+        </div>
+        <div class="button-row">
+          <button onclick="send('o400')">Act Pos 400</button>
+          <button onclick="send('p')">Stop Actuator</button>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>Status</h2>
+        <div class="button-row">
+          <button onclick="send('x')">Reset Flags</button>
+        </div>
+      </div>
+      
+      <p id="result"></p>
     </div>
-    <div class="section">
-      <h2>Brush</h2>
-      <button onclick="send('c200')">Brush</button>
-      <button onclick="send('e200')">Brush Reverse</button>
-      <button onclick="send('s')">Stop Brush</button>
-    </div>
-    <div class="section">
-      <h2>Actuator</h2>
-      <button onclick="send('l100')">Act Pos 100</button>
-      <button onclick="send('m200')">Act Pos 200</button>
-      <button onclick="send('n300')">Act Pos 300</button>
-      <button onclick="send('o400')">Act Pos 400</button>
-      <button onclick="send('p')">Stop Actuator</button>
-    </div>
-    <div class="section">
-      <h2>Status</h2>
-      <button onclick="send('x')">Reset Flags</button>
-    </div>
-    <p id="result"></p>
   </main>
   <script src="script.js"></script>
 </body>
