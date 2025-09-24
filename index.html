@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ESP32 Solar Cleaner Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>ESP32 Solar Panel Cleaner</h1>
+    <label>
+      ESP32 IP:
+      <input id="esp32-ip" type="text" value="192.168.4.1" />
+    </label>
+    <div class="section">
+      <h2>Drive</h2>
+      <button onclick="send('f120')">Forward</button>
+      <button onclick="send('r120')">Reverse</button>
+      <button onclick="send('b')">Brake</button>
+    </div>
+    <div class="section">
+      <h2>Brush</h2>
+      <button onclick="send('c200')">Brush</button>
+      <button onclick="send('e200')">Brush Reverse</button>
+      <button onclick="send('s')">Stop Brush</button>
+    </div>
+    <div class="section">
+      <h2>Actuator</h2>
+      <button onclick="send('l100')">Act Pos 100</button>
+      <button onclick="send('m200')">Act Pos 200</button>
+      <button onclick="send('n300')">Act Pos 300</button>
+      <button onclick="send('o400')">Act Pos 400</button>
+      <button onclick="send('p')">Stop Actuator</button>
+    </div>
+    <div class="section">
+      <h2>Status</h2>
+      <button onclick="send('x')">Reset Flags</button>
+    </div>
+    <p id="result"></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
